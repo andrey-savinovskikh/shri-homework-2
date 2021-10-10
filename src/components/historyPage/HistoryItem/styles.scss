@@ -41,7 +41,7 @@
     box-shadow: 0 0 1px rgba(67, 68, 69, 0.3), 0 1px 1px rgba(67, 68, 69, 0.3);
     border-radius: 6px;
     position: relative;
-    padding: 8px 10px 13px 56px;
+    padding: 8px 10px 11px 56px;
   }
 
   &__row {
@@ -61,6 +61,7 @@
       }
 
       &_time {
+        padding-top: 6px;
         flex: 130px 0 0;
         min-width: 130px;
       }
@@ -74,7 +75,7 @@
   }
 
   &__info-row {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     margin-left: -3px;
     margin-right: -3px;
 
@@ -112,6 +113,12 @@
         font-size: 18px;
         line-height: 20px;
         font-weight: 500;
+      }
+
+      &_commit {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.06px;
       }
 
       &_title {
@@ -229,6 +236,10 @@
             margin-left: 5px;
             margin-right: 5px;
             margin-bottom: 7px;
+          }
+
+          &_hash, &_commit {
+            display: inline-block;
           }
         }
       }
