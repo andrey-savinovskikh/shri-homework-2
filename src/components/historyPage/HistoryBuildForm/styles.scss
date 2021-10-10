@@ -1,0 +1,56 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.HistoryBuildForm {
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    line-height: 1.38;
+    letter-spacing: 0.06px;
+    color: #000000;
+  }
+
+  &__input {
+    margin-bottom: 12px;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-left: -4px;
+    margin-right: -4px;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
+.HistoryBuildForm_adapt_default {
+  @include media-breakpoint-xs {
+    .HistoryBuildForm {
+      &__subtitle {
+        max-width: 200px;
+        margin-bottom: 17px;
+      }
+
+      &__button {
+        flex: 100%;
+        max-width: 100%;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

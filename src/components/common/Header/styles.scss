@@ -1,0 +1,61 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.Header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  &__col {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+
+  &__button {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.17;
+    letter-spacing: 0.25px;
+    color: $c-blue-grey-500;
+    margin: 0;
+    word-break: break-word;
+
+    &_color {
+      &_black {
+        color: $c-black;
+      }
+    }
+  }
+}
+
+.Header_adapt_default {
+  @include media-breakpoint-xs {
+    padding-top: 12px;
+
+    .Header {
+      &__title {
+        font-size: 18px;
+        line-height: 1.22;
+      }
+    }
+  }
+}

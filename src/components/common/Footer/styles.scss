@@ -1,0 +1,75 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.Footer {
+  background-color: $c-blue-grey-50;
+  color: $c-blue-grey-500;
+  font-size: 13px;
+  line-height: 1.38;
+  letter-spacing: 0.06px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  &__col {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &__links {
+    display: flex;
+    margin-left: -7px;
+    margin-right: -7px;
+  }
+
+  &__link {
+    margin-left: 7px;
+    margin-right: 7px;
+    color: $c-blue-grey-500;
+    transition: 0.25s ease all;
+    text-decoration: none;
+
+    &:hover {
+      color: #E00000;
+    }
+  }
+}
+
+.Footer_adapt_default {
+  @include media-breakpoint-xs {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .Footer {
+      &__row {
+        flex-wrap: wrap;
+      }
+
+      &__col {
+        flex: 100%;
+        max-width: 100%;
+
+        &:first-child {
+          margin-bottom: 8px;
+        }
+      }
+
+      &__links {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+
+      &__link {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

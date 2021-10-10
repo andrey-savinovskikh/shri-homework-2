@@ -1,0 +1,99 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.Input {
+  &__label {
+    font-size: 13px;
+    line-height: 1.38;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  &__required {
+    color: $c-red-500;
+  }
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__input {
+    background-color: $c-white;
+    border: 2px solid $c-bg-heavy;
+    border-radius: 4px;
+    padding: 8px 10px;
+    width: 100%;
+    transition: 0.25s ease border-color;
+
+    &::placeholder {
+      color: rgba($c-black, 0.2);
+    }
+
+    &:focus {
+      border-color: $c-border-focused;
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__units {
+    font-size: 13px;
+    line-height: 1.38;
+    letter-spacing: 0.06px;
+    color: $c-blue-grey-600;
+  }
+
+  &__error {
+    color: $c-red-500;
+    font-size: 12px;
+    margin-top: 7px;
+  }
+}
+
+.Input_with-clear {
+  .Input {
+    &__input {
+      padding-right: 40px;
+    }
+  }
+}
+
+.Input_with-units {
+  .Input {
+    &__label {
+      margin-right: 7px;
+      margin-bottom: 0;
+    }
+
+    &__input {
+      width: 52px;
+      text-align: right;
+    }
+
+    &__units {
+      margin-left: 9px;
+    }
+
+    &__wrap {
+      display: inline-block;
+    }
+  }
+}
+
+.Input_error {
+  .Input {
+    &__input {
+      border-color: $c-red-500;
+    }
+  }
+}
