@@ -1,17 +1,16 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import "mockApi";
+import {useSelector} from "react-redux";
 
 import {SETTINGS} from "constants/routes";
+import "mockApi";
 
 import StartPage from "pages/StartPage";
 import HistoryPage from "pages/HistoryPage";
 import SettingsPage from "pages/SettingsPage";
 
-import {useRepositoryState} from "./contexts/RepositoryProvider";
-
 function App() {
-  const {repository} = useRepositoryState();
+  const repository = useSelector((state) => state.settings.repository);
 
   return (
     <Switch>

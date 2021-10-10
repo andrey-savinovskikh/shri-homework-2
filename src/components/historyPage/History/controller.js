@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 import {SETTINGS} from "constants/routes";
 import {getHistory} from "adapters/historyPageAdapter";
+import {setHistory, setIsLoading} from "store/historySlice";
 
 import Button from "components/common/Button";
 
 import useCustomModal from "components/common/CustomModal/useCustomModal";
-import {useRepositoryState} from "../../../contexts/RepositoryProvider";
 
 import {ReactComponent as PlayIcon} from "../../../resources/images/play.svg";
 import {ReactComponent as CogIcon} from "../../../resources/images/cog.svg";
@@ -15,30 +16,30 @@ import {ReactComponent as CogIcon} from "../../../resources/images/cog.svg";
 const useHistoryController = () => {
   const {isOpened, closeModal, openModal} = useCustomModal(false);
 
-  const {repository} = useRepositoryState();
+  const repository = useSelector((state) => state.settings.repository);
+  const {isLoading, history} = useSelector((state) => state.history);
+  const dispatch = useDispatch()
 
   const [cursor, setCursor] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [history, setList] = useState(null);
 
   useEffect(() => {
     getHistory({count: 10}).then((res) => {
       const {list, cursor} = res.data;
 
-      setList(list);
-      setCursor(cursor)
+      dispatch(setHistory(list));
+      setCursor(cursor);
     });
-  }, []);
+  }, [dispatch]);
 
   const loadMore = (cursor) => {
-    setIsLoading(true);
+    dispatch(setIsLoading(true));
 
     getHistory({cursor, count: 10}).then((res) => {
       const {list, cursor} = res.data;
 
-      setList((state) => [...state, ...list]);
+      dispatch(setHistory(list));
+      dispatch(setIsLoading(false));
       setCursor(cursor);
-      setIsLoading(false);
     });
   }
 

@@ -1,36 +1,31 @@
-import {useState} from 'react';
 import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
-import {setRepository} from "adapters/settingsPageAdapter";
-
-import {useRepositoryDispatch, useRepositoryState} from "contexts/RepositoryProvider";
+import {setRepository as setRepositoryRequest} from "adapters/settingsPageAdapter";
+import {setIsLoading, setError, setRepository} from "store/settingsSlice";
 
 const useSettingsController = () => {
-  const {repository} = useRepositoryState();
-  const dispatch = useRepositoryDispatch();
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const {isLoading, error, repository} = useSelector((state) => state.settings);
+  const dispatch = useDispatch()
 
   let history = useHistory();
 
   const set = (data) => {
-    setIsLoading(true);
-    setError("");
+    dispatch(setIsLoading(true));
+    dispatch(setError(""));
 
-    setRepository(data)
+    setRepositoryRequest(data)
       .then((res) => {
         const {repository} = res.data;
 
-        dispatch({type: "set", payload: {repository}})
-        setIsLoading(false);
-        setError("");
+        dispatch(setRepository(repository));
+        dispatch(setIsLoading(false));
 
         history.push("/");
       })
       .catch((err) => {
-        setError(err.message)
-        setIsLoading(false);
+        dispatch(setError(err.message));
+        dispatch(setIsLoading(false));
       });
   }
 
