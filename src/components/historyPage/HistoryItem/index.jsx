@@ -42,8 +42,11 @@ const HistoryItem = ({mods, item}) => {
                   <CommitIcon fill="rgba(0, 0, 0, .3)"/>
                 </span>
 
-                <span className={cls("branch")}>{branch}</span>
-                <span className={cls("hash")}>{hash}</span>
+                {branch}
+              </span>
+
+              <span className={cls("info", {type: "hash", col: true})}>
+                {hash}
               </span>
 
               <span className={cls("info", {type: "contributor", col: true, icon: true})}>
