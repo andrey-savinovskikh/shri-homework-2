@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 import {SETTINGS} from "constants/routes";
 import {getHistory} from "adapters/historyPageAdapter";
-import {setHistory, setIsLoading} from "store/historySlice";
+import {setHistory, addHistory, setIsLoading} from "store/historySlice";
 
 import Button from "components/common/Button";
 
@@ -37,7 +37,7 @@ const useHistoryController = () => {
     getHistory({cursor, count: 10}).then((res) => {
       const {list, cursor} = res.data;
 
-      dispatch(setHistory(list));
+      dispatch(addHistory(list));
       dispatch(setIsLoading(false));
       setCursor(cursor);
     });
