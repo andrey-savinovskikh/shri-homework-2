@@ -1,0 +1,31 @@
+@import "utils/index";
+@import "fonts";
+@import "variables";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+
+  &::after, &::before {
+    box-sizing: border-box;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+html, body, #root  {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: $default-font;
+  color: $c-text;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}

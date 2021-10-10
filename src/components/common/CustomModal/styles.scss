@@ -1,0 +1,49 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.CustomModal {
+  &__wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    transition: all ease .3s;
+    background-color: rgba(#000, .4);
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+  }
+
+  &__inner {
+    vertical-align: middle;
+    display: inline-block;
+    width: 95%;
+    max-width: 486px;
+  }
+
+  &__content {
+    text-align: left;
+    background: $c-white;
+    box-shadow: 0 0 1px rgba(67, 68, 69, 0.3), 0 6px 16px rgba(67, 68, 69, 0.3);
+    border-radius: 4px;
+    padding: 20px 20px;
+  }
+
+  &__body {
+    &_open {
+      overflow-y: hidden;
+    }
+  }
+}

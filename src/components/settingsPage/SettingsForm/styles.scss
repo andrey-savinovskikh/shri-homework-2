@@ -1,0 +1,76 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.SettingsForm {
+  &__title {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.33;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    line-height: 1.38;
+    color: $c-blue-grey-500;
+    margin-bottom: 22px;
+  }
+
+  &__input {
+    margin-bottom: 17px;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-left: -4px;
+    margin-right: -4px;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  &__sync {
+    margin-top: 23px;
+    margin-bottom: 25px;
+  }
+
+  &__error {
+    display: block;
+    padding: 11px 20px 9px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: $c-red-500;
+    background-color: rgba($c-red-500, 0.15);
+    border: 1px solid $c-red-500;
+    margin-top: 20px;
+  }
+}
+
+.SettingsForm_adapt_default {
+  @include media-breakpoint-xs {
+    .SettingsForm {
+      &__subtitle {
+        max-width: 200px;
+        margin-bottom: 17px;
+      }
+
+      &__sync {
+        margin-top: 18px;
+        margin-bottom: 20px;
+      }
+
+      &__button {
+        flex: 100%;
+        max-width: 100%;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

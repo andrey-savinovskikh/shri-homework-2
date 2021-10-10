@@ -1,0 +1,237 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.HistoryItem {
+  $self: &;
+
+  &_status {
+    &_success {
+      #{$self}__info {
+        &_type {
+          &_number {
+            color: $c-green-500;
+          }
+        }
+      }
+    }
+
+    &_wait {
+      #{$self}__info {
+        &_type {
+          &_number {
+            color: $c-orange-500;
+          }
+        }
+      }
+    }
+
+    &_decline {
+      #{$self}__info {
+        &_type {
+          &_number {
+            color: $c-red-500;
+          }
+        }
+      }
+    }
+  }
+
+  &__wrap {
+    background-color: $c-white;
+    box-shadow: 0 0 1px rgba(67, 68, 69, 0.3), 0 1px 1px rgba(67, 68, 69, 0.3);
+    border-radius: 6px;
+    position: relative;
+    padding: 8px 10px 13px 56px;
+  }
+
+  &__row {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  &__col {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &_type {
+      &_info {
+        padding-top: 4px;
+        flex: auto;
+      }
+
+      &_time {
+        flex: 130px 0 0;
+        min-width: 130px;
+      }
+    }
+  }
+
+  &__status {
+    position: absolute;
+    left: 25px;
+    top: 13px;
+  }
+
+  &__info-row {
+    margin-bottom: 5px;
+    margin-left: -3px;
+    margin-right: -3px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    &_col {
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+
+    &_icon {
+      padding-left: 20px;
+      position: relative;
+    }
+
+    &_type {
+      &_branch {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.06px;
+      }
+
+      &_hash {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.06px;
+        opacity: 0.65;
+      }
+
+      &_number {
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 500;
+      }
+
+      &_title {
+        font-size: 15px;
+        line-height: 20px;
+      }
+
+      &_contributor {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.06px;
+      }
+
+      &_date, &_time {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.06px;
+        color: rgba($c-black, 0.65);
+        margin-bottom: 8px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.HistoryItem_adapt_default {
+  @include media-breakpoint-sm {
+    .HistoryItem {
+      &__status {
+        left: 13px;
+        top: 17px;
+
+        svg {
+          height: 14px;
+          width: 14px;
+        }
+      }
+
+      &__wrap {
+        padding-right: 20px;
+        padding-left: 35px;
+        padding-bottom: 15px;
+      }
+
+      &__row {
+        flex-wrap: wrap;
+      }
+
+      &__col {
+        flex: 100%;
+        max-width: 100%;
+
+        &_type {
+          &_info {
+            padding-top: 6px;
+            padding-bottom: 1px;
+            margin-bottom: 9px;
+            position: relative;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 10px;
+              right: 5px;
+              bottom: 0;
+              height: 1px;
+              background-color: $c-blue-grey-50;
+            }
+          }
+
+          &_time {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -5px;
+            margin-right: -5px;
+            margin-bottom: -7px;
+          }
+        }
+      }
+
+      &__info-row {
+        margin-bottom: 7px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &__info {
+        &_col {
+          display: block;
+          margin-bottom: 7px;
+        }
+
+        &_type {
+          &_number {
+            font-size: 16px;
+          }
+
+          &_date, &_time {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 7px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.Settings {
+  &__form {
+    max-width: 474px;
+  }
+}
+
+.Settings_adapt_default {
+  .Settings {
+    &__form {
+      padding-top: 8px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+$container-max-width: 856px;
+$container-max-width-md: 720px;
+$container-max-width-sm: 540px;
+$container-max-width-xs: 100%;
+
+$grid-breakpoint-md: 992px;
+$grid-breakpoint-sm: 768px;
+$grid-breakpoint-xs: 576px;
+
+$c-black: #000;
+$c-white: #fff;
+$c-green-500: #00B341;
+$c-orange-500: #FF9A00;
+$c-blue-grey-600: #434445;
+$c-blue-grey-500: #7F8285;
+$c-blue-grey-50: #F0F2F3;
+$c-red: #E00000;
+$c-red-500: #FF3333;
+$c-text: $c-black;
+$c-bg-control: #E6E6E6;
+$c-bg-control-hovered: #DBDBDB;
+$c-border-control-focused: #B3B3B3;
+$c-bg-action: #FFCC00;
+$c-bg-action-hovered: #F2C200;
+$c-border-action-focused: #B38F00;
+$c-bg-disabled: #F2F2F2;
+$c-text-disabled: #7F7F7F;
+$c-bg-heavy: #D9D9D9;
+$c-border-focused: #B3B3B3;
+
+$default-font: 'YS text', sans-serif;

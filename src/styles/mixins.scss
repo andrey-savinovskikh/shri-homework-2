@@ -1,0 +1,19 @@
+@import "variables";
+
+@mixin media-breakpoint-md {
+  @media (max-width: $grid-breakpoint-md){
+    @content;
+  }
+}
+
+@mixin media-breakpoint-sm {
+  @media (max-width: $grid-breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-xs {
+  @media (max-width: $grid-breakpoint-xs) {
+    @content;
+  }
+}
