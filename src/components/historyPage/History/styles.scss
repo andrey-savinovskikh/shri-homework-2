@@ -1,6 +1,19 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
 .History {
   &__button {
     margin-top: 8px;
     max-width: 110px;
+  }
+}
+
+.History_adapt_default {
+  @include media-breakpoint-xs {
+    .History {
+      &__button {
+        max-width: 100%;
+      }
+    }
   }
 }
