@@ -1,3 +1,6 @@
+@import "styles/variables";
+@import "styles/mixins";
+
 .Settings {
   &__form {
     max-width: 474px;
@@ -5,9 +8,11 @@
 }
 
 .Settings_adapt_default {
-  .Settings {
-    &__form {
-      padding-top: 8px;
+  @include media-breakpoint-sm {
+    .Settings {
+      &__form {
+        padding-top: 8px;
+      }
     }
   }
 }
