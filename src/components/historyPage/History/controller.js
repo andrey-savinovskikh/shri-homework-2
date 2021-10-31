@@ -12,6 +12,7 @@ import useCustomModal from "components/common/CustomModal/useCustomModal";
 
 import {ReactComponent as PlayIcon} from "../../../resources/images/play.svg";
 import {ReactComponent as CogIcon} from "../../../resources/images/cog.svg";
+import Counter from "utils/Counter";
 
 const useHistoryController = () => {
   const {isOpened, closeModal, openModal} = useCustomModal(false);
@@ -23,11 +24,15 @@ const useHistoryController = () => {
   const [cursor, setCursor] = useState(null);
 
   useEffect(() => {
+    const start = new Date().getTime();
+
     getHistory({count: 10}).then((res) => {
       const {list, cursor} = res.data;
 
       dispatch(setHistory(list));
       setCursor(cursor);
+
+      Counter.send('historyLoaded', new Date().getTime() - start);
     });
   }, [dispatch]);
 

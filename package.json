@@ -1,8 +1,7 @@
 {
   "name": "shri-homework-2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
-  "homepage": "http://andrey-savinovskikh.github.io/shri-homework-2",
   "dependencies": {
     "@bem-react/classname": "^1.5.12",
     "@reduxjs/toolkit": "^1.6.2",
@@ -11,7 +10,9 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.22.0",
     "axios-mock-adapter": "^1.20.0",
+    "detect-browser": "^5.2.1",
     "formik": "^2.2.9",
+    "metrics": "https://github.com/andrey-savinovskikh/shri-homework-7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.3",
@@ -20,6 +21,7 @@
     "react-scripts": "4.0.3",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
+    "web-vitals": "^2.1.2",
     "yup": "^0.32.9"
   },
   "scripts": {
